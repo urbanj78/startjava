@@ -2,7 +2,8 @@ public class Person {
     String name = "John";
     boolean maleGender = true;
     int age = 22;
-    float weight = 78.5, height = 1.8;
+    float weight = 78.5;
+    float height = 1.8;
 
     void walk() {
         System.out.println("Прошёл один метр");
