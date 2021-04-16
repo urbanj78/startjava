@@ -11,10 +11,10 @@ public class WolfTest {
         System.out.println("Цвет " + wolfOne.colour);
         System.out.println("Возраст " + wolfOne.age + " лет");
         System.out.println("Вес " + wolfOne.weight + " кг");
-         wolfOne.sit();
-         wolfOne.walk();
-         wolfOne.run();
-         wolfOne.hunt();
-         wolfOne.yowl();
+        wolfOne.sit();
+        wolfOne.walk();
+        wolfOne.run();
+        wolfOne.hunt();
+        wolfOne.yowl();
     }
 }
