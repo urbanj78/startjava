@@ -1,22 +1,21 @@
 public class Calculator {
-        public int computation(int num1, int num2, char mathSign) {
+        public int calculate(int num1, int num2, char mathSign) {
             switch(mathSign) {
-                case 43:
+                case '+':
                     return num1 + num2;
-                case 45:
+                case '-':
                     return num1 - num2;
-                case 42:
+                case '*':
                     return num1 * num2;
-                case 47:
+                case '/':
                     return num1 / num2;
-                case 94:
+                case '^':
                     int result = num1;
-
-                    for(int counter = num2; counter > 0; counter--) {
+                    for(int i = num2; i > 0; i--) {
                         result *= num1;
                     }
                     return result;
-                case 37:
+                case '%':
                     return num1 % num2;
                 default :
                     break;
