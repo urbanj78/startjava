@@ -17,8 +17,6 @@ public class Calculator {
                     return result;
                 case '%':
                     return num1 % num2;
-                default :
-                    break;
         }
         return 0;
     }

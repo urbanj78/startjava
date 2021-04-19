@@ -22,10 +22,10 @@ public class CalculatorTest {
             System.out.println(num1 + " " + mathSign + " " + num2 + " = " + result);
             answer = "";
 
-            while(!(answer.equals("yes")) & !(answer.equals("no"))) {
+            do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 answer = scanner.nextLine();
-            }
+            } while(!answer.equals("yes") && !answer.equals("no"));
         }
     }
 }
