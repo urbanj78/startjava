@@ -1,24 +1,7 @@
 public class JaegerTest {
     public static void main(String[] args) {
-        Jaeger chernoAlpha = new Jaeger();
-        chernoAlpha.setModelName("Cherno Alpha");
-        chernoAlpha.setMark("Mark-1");
-        chernoAlpha.setOrigin("Russia");
-        chernoAlpha.setHeight(85.34f);
-        chernoAlpha.setWeight(2.412f);
-        chernoAlpha.setStrenght(10);
-        chernoAlpha.setSpeed(3);
-        chernoAlpha.setArmor(10);
-
-        Jaeger coyoteTango = new Jaeger();
-        coyoteTango.setModelName("Coyote Tango");
-        coyoteTango.setMark("Mark-1");
-        coyoteTango.setOrigin("Japan");
-        coyoteTango.setHeight(85.34f);
-        coyoteTango.setWeight(2.312f);
-        coyoteTango.setStrenght(7);
-        coyoteTango.setSpeed(5);
-        coyoteTango.setArmor(4);
+        Jaeger chernoAlpha = new Jaeger("Cherno Alpha", "Mark-1", "Russia", 85.34f, 2.412f, 10, 3, 10);
+        Jaeger coyoteTango = new Jaeger("Coyote Tango", "Mark-1", "Japan", 85.34f, 2.312f, 7, 5, 4);
 
         System.out.println("");
         System.out.println("Firts Jaeger " + chernoAlpha.getModelName());
