@@ -1,9 +1,11 @@
+package com.lesson_2_3.person;
+
 public class Person {
     String name = "John";
     boolean maleGender = true;
     int age = 22;
-    float weight = 78.5;
-    float height = 1.8;
+    float weight = 78.5f;
+    float height = 1.8f;
 
     void walk() {
         System.out.println("Прошёл один метр");

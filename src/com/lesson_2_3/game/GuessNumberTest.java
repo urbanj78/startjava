@@ -1,3 +1,5 @@
+package com.lesson_2_3.game;
+
 import java.io.IOException;
 
 import java.io.BufferedReader;

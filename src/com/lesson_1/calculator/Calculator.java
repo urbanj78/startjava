@@ -1,3 +1,5 @@
+package com.lesson_1.calculator;
+
 import java.io.IOException;
 
 import java.io.BufferedReader;

@@ -1,3 +1,5 @@
+package com.lesson_1.game;
+
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 

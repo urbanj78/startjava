@@ -1,3 +1,5 @@
+package com.lesson_2_3.game;
+
 public class GuessNumber {
     private Player playerOne;
     private Player playerTwo;
