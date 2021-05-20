@@ -14,15 +14,15 @@ public class GuessNumber {
         this.pcNum = pcNum;
     }
 
-    public static boolean guess(Player currentPlayer) {
-        if(currentPlayer.getNumber() > pcNum) {
+    public static boolean guess(Player currentPlayer, int attempt) {
+        if(currentPlayer.getNumber(attempt) > pcNum) {
                 System.out.println("Данное число больше того, что загадал компьютер");
                 return false;
-            } else if(currentPlayer.getNumber() < pcNum) {
+            } else if(currentPlayer.getNumber(attempt) < pcNum) {
                 System.out.println("Данное число меньше того, что загадал компьютер");
                 return false;
             } else {
-                System.out.println("Вы угадали " + currentPlayer.getName() + "! Число " + pcNum);
+                System.out.println(currentPlayer.getName() + " Вы угадали число " + pcNum + " c " + (attempt + 1) + " попытки!" );
                 return true;
             }
     }
