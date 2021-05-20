@@ -26,4 +26,10 @@ public class GuessNumber {
                 return true;
             }
     }
+
+    public static void attemptCheck(Player player, int attempt) {
+        if (attempt == 10) {
+            System.out.println("У игрока " + player.getName() + " закончились попытки!");
+        }
+    }
 }

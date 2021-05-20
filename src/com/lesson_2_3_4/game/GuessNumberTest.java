@@ -24,7 +24,6 @@ public class GuessNumberTest {
         boolean win = false;
         Random random = new Random();
 
-
         do {
             int attemptPl1 = 0;
             int attemptPl2 = 0;
@@ -35,13 +34,13 @@ public class GuessNumberTest {
                 playerOne.setNumber(Integer.parseInt(reader.readLine()), attemptPl1);
                 win = GuessNumber.guess(playerOne, attemptPl1);
                 attemptPl1++;
-                GuessNumberTest.attemptCheck(playerOne, attemptPl1);
+                GuessNumber.attemptCheck(playerOne, attemptPl1);
                 if (!win) {
                     System.out.println(playerTwo.getName() + " Введите ваше число, попытка №" + (attemptPl2 + 1));
                     playerTwo.setNumber(Integer.parseInt(reader.readLine()), attemptPl2);
                     win = GuessNumber.guess(playerTwo, attemptPl2);
                     attemptPl2++;
-                    GuessNumberTest.attemptCheck(playerTwo, attemptPl2);
+                    GuessNumber.attemptCheck(playerTwo, attemptPl2);
                 }
                 if (attemptPl1 == 10 && attemptPl2 == 10) {
                     System.out.println("Компьютер выиграл!");
@@ -58,14 +57,7 @@ public class GuessNumberTest {
                 System.out.println("Хотите продолжить игру? [yes/no]:");
                 answer = reader.readLine();
             } while (!answer.equals("yes") && !answer.equals("no"));
-
         } while (answer.equals("yes"));
-    }
-
-    private static void attemptCheck(Player player, int attempt) {
-        if (attempt == 10) {
-            System.out.println("У игрока " + player.getName() + " закончились попытки!");
-        }
     }
 
     private static void printResult(Player player, int attempt) {
