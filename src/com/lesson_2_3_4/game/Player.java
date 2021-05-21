@@ -14,19 +14,19 @@ public class Player {
         return name;
     }
 
-    public void setNumber(int number, int position) {
-        this.numbers[position] = number;
+    public void setNumber(int number, int index) {
+        numbers[index] = number;
     }
 
-    public int getCurrentNumber(int position){
-        return this.numbers[position];
+    public int getCurrentNumber(int index) {
+        return numbers[index];
     }
 
     public int[] getNumbers(int index) {
         return Arrays.copyOf(numbers, index);
     }
 
-    public void resetNumbers(int attempt) {
-        Arrays.fill(this.numbers, 0, attempt, 0);
+    public void resetNumbers(int index) {
+        Arrays.fill(numbers, 0, index, 0);
     }
 }
