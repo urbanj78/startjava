@@ -17,23 +17,23 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public void gaming(Player playerOne, Player playerTwo) throws Exception {
+    public void start() throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int attemptPl1 = 0;
         int attemptPl2 = 0;
-        int envisionedNum = (random.nextInt(101));
+        int envisionedNumber = (random.nextInt(101));
         boolean win = false;
 
         do {
             System.out.println(playerOne.getName() + " Введите ваше число, попытка №" + (attemptPl1 + 1));
             playerOne.setNumber(Integer.parseInt(reader.readLine()), attemptPl1);
-            win = this.guess(playerOne, attemptPl1, envisionedNum);
+            win = this.guess(playerOne, attemptPl1, envisionedNumber);
             attemptPl1++;
             this.attemptCheck(playerOne, attemptPl1);
             if (!win) {
                 System.out.println(playerTwo.getName() + " Введите ваше число, попытка №" + (attemptPl2 + 1));
                 playerTwo.setNumber(Integer.parseInt(reader.readLine()), attemptPl2);
-                win = this.guess(playerTwo, attemptPl2, envisionedNum);
+                win = this.guess(playerTwo, attemptPl2, envisionedNumber);
                 attemptPl2++;
                 this.attemptCheck(playerTwo, attemptPl2);
             }
@@ -43,21 +43,21 @@ public class GuessNumber {
             }
         } while (!win);
 
-        this.printResult(playerOne, attemptPl1);
-        this.printResult(playerTwo, attemptPl2);
+        this.printPlayerNumbers(playerOne, attemptPl1);
+        this.printPlayerNumbers(playerTwo, attemptPl2);
         playerOne.resetNumbers(attemptPl1);
         playerTwo.resetNumbers(attemptPl2);
     }
 
-    public boolean guess(Player currentPlayer, int attempt, int envisionedNum) {
-        if (currentPlayer.getCurrentNumber(attempt) > envisionedNum) {
+    public boolean guess(Player currentPlayer, int attempt, int envisionedNumber) {
+        if (currentPlayer.getCurrentNumber(attempt) > envisionedNumber) {
             System.out.println("Данное число больше того, что загадал компьютер");
             return false;
-        } else if (currentPlayer.getCurrentNumber(attempt) < envisionedNum) {
+        } else if (currentPlayer.getCurrentNumber(attempt) < envisionedNumber) {
             System.out.println("Данное число меньше того, что загадал компьютер");
             return false;
         } else {
-            System.out.println(currentPlayer.getName() + " Вы угадали число " + envisionedNum + " c " + (attempt + 1) + " попытки!");
+            System.out.println(currentPlayer.getName() + " Вы угадали число " + envisionedNumber + " c " + (attempt + 1) + " попытки!");
             return true;
         }
     }
@@ -68,7 +68,7 @@ public class GuessNumber {
         }
     }
 
-    private void printResult(Player player, int attempt) {
+    private void printPlayerNumbers(Player player, int attempt) {
         int[] numbers = player.getNumbers(attempt);
         for(int number : numbers) {
             System.out.print( number + " ");

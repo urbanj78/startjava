@@ -19,7 +19,7 @@ public class GuessNumberTest {
 
         do {
             System.out.println("Компьютер загадал число");
-            guessNumberOne.gaming(playerOne, playerTwo);
+            guessNumberOne.start();
 
             do {
                 System.out.println("Хотите продолжить игру? [yes/no]:");
