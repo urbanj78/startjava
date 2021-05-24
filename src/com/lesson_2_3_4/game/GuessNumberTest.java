@@ -3,6 +3,7 @@ package com.lesson_2_3_4.game;
 import java.io.BufferedReader;
 
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class GuessNumberTest {
 
@@ -14,12 +15,12 @@ public class GuessNumberTest {
         Player playerOne = new Player(reader.readLine());
         System.out.println("Введите имя второго игрока");
         Player playerTwo = new Player(reader.readLine());
-        GuessNumber guessNumberOne = new GuessNumber(playerOne, playerTwo);
+        GuessNumber game = new GuessNumber(playerOne, playerTwo);
         String answer = "yes";
 
         do {
             System.out.println("Компьютер загадал число");
-            guessNumberOne.start();
+            game.start();
 
             do {
                 System.out.println("Хотите продолжить игру? [yes/no]:");
