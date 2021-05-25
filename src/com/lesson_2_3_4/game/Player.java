@@ -23,8 +23,8 @@ public class Player {
         return numbers[index];
     }
 
-    public int[] getNumbers(int lenght) {
-        return Arrays.copyOf(numbers, lenght);
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, getAttempt());
     }
 
     public void setAttempt(int attempt) {
