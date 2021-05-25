@@ -15,20 +15,17 @@ public class Player {
         return name;
     }
 
-    public void setNumber(int number, int index) {
-        numbers[index] = number;
+    public void setNumber(int number) {
+        numbers[attempt] = number;
+        attempt++;
     }
 
-    public int getCurrentNumber(int index) {
-        return numbers[index];
+    public int getCurrentNumber() {
+        return numbers[attempt];
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, getAttempt());
-    }
-
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
+        return Arrays.copyOf(numbers, attempt);
     }
 
     public int getAttempt() {
@@ -37,5 +34,6 @@ public class Player {
 
     public void resetNumbers() {
         Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
     }
 }
