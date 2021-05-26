@@ -20,17 +20,11 @@ public class GuessNumber {
         int secretNumber = random.nextInt(101);
 
         do {
-            if(checkAttempt(playerOne)) {
-                enterNumber(playerOne);
-                if (guess(playerOne, secretNumber)) {
-                    break;
-                }
+            if(enterNumAndGuess(playerOne, secretNumber)) {
+                break;
             }
-            if(checkAttempt(playerTwo)) {
-                enterNumber(playerTwo);
-                if (guess(playerTwo, secretNumber)) {
-                    break;
-                }
+            if(enterNumAndGuess(playerTwo, secretNumber)) {
+                break;
             }
             if(playerOne.getAttempt() == 10 && playerTwo.getAttempt() == 10) {
                 System.out.println("Компьютер выиграл!");
@@ -44,29 +38,22 @@ public class GuessNumber {
         playerTwo.resetNumbers();
     }
 
-    private void enterNumber(Player currentPlayer) throws Exception {
+    private boolean enterNumAndGuess(Player currentPlayer, int secretNumber) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println(currentPlayer.getName() + " Введите ваше число, попытка №" + (currentPlayer.getAttempt() + 1));
         currentPlayer.setNumber(Integer.parseInt(reader.readLine()));
-    }
-
-    private boolean guess(Player currentPlayer, int secretNumber) {
-        int number = currentPlayer.getCurrentNumber();
+        int number = (currentPlayer.getCurrentNumber());
 
         if(number != secretNumber) {
             String moreLess = (number > secretNumber) ? "больше" : "меньше";
             System.out.println("Данное число " + moreLess + " того, что загадал компьютер");
+            if (currentPlayer.getAttempt() == 10) {
+                System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
+            }
             return false;
         }
-        System.out.println(currentPlayer.getName() + " Вы угадали число " + secretNumber + " c " + (currentPlayer.getAttempt() + 1) + " попытки!");
+        System.out.println(currentPlayer.getName() + " Вы угадали число " + secretNumber + " c " + (currentPlayer.getAttempt()) + " попытки!");
         return true;
-    }
-
-    private boolean checkAttempt(Player currentPlayer) {
-        if (currentPlayer.getAttempt() == 10) {
-            System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
-            return false;
-        } return true;
     }
 
     private void printPlayerNumbers(Player currentPlayer) {

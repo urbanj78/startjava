@@ -21,7 +21,7 @@ public class Player {
     }
 
     public int getCurrentNumber() {
-        return numbers[attempt];
+        return numbers[attempt - 1];
     }
 
     public int[] getNumbers() {
