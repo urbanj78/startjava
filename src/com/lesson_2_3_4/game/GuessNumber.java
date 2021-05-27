@@ -38,22 +38,31 @@ public class GuessNumber {
         playerTwo.resetNumbers();
     }
 
-    private boolean enterNumAndGuess(Player currentPlayer, int secretNumber) throws Exception {
+    private void enterNumber(Player currentPlayer) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println(currentPlayer.getName() + " Введите ваше число, попытка №" + (currentPlayer.getAttempt() + 1));
         currentPlayer.setNumber(Integer.parseInt(reader.readLine()));
+    }
+
+    private boolean guess(Player currentPlayer, int secretNumber) {
         int number = (currentPlayer.getCurrentNumber());
 
         if(number != secretNumber) {
             String moreLess = (number > secretNumber) ? "больше" : "меньше";
             System.out.println("Данное число " + moreLess + " того, что загадал компьютер");
-            if (currentPlayer.getAttempt() == 10) {
-                System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
-            }
             return false;
         }
         System.out.println(currentPlayer.getName() + " Вы угадали число " + secretNumber + " c " + (currentPlayer.getAttempt()) + " попытки!");
         return true;
+    }
+
+    private boolean enterNumAndGuess(Player currentPlayer, int secretNumber) throws Exception {
+        enterNumber(currentPlayer);
+        boolean guessResult = guess(currentPlayer, secretNumber);
+        if (currentPlayer.getAttempt() == 10) {
+            System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
+        }
+        return guessResult;
     }
 
     private void printPlayerNumbers(Player currentPlayer) {
