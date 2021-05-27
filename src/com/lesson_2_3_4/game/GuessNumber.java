@@ -19,23 +19,27 @@ public class GuessNumber {
         Random random = new Random();
         int secretNumber = random.nextInt(101);
 
-        do {
-            if(enterNumAndGuess(playerOne, secretNumber)) {
-                break;
-            }
-            if(enterNumAndGuess(playerTwo, secretNumber)) {
-                break;
-            }
-            if(playerOne.getAttempt() == 10 && playerTwo.getAttempt() == 10) {
-                System.out.println("Компьютер выиграл!");
-                break;
-            }
-        } while (true);
+        while(!makeMove(playerOne, secretNumber) && !makeMove(playerTwo, secretNumber)) {
+            System.out.println("Ни один из игроков не угадал число!");
+        }
 
         printPlayerNumbers(playerOne);
         printPlayerNumbers(playerTwo);
         playerOne.resetNumbers();
         playerTwo.resetNumbers();
+    }
+
+    private boolean makeMove(Player currentPlayer, int secretNumber) throws Exception {
+        if (currentPlayer.getAttempt() == 10) {
+            System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
+
+            if (playerOne.getAttempt() == 10 && playerTwo.getAttempt() == 10) {
+                System.out.println("Компьютер выиграл!");
+                return true;
+            } return false;
+        }
+        enterNumber(currentPlayer);
+        return guess(currentPlayer, secretNumber);
     }
 
     private void enterNumber(Player currentPlayer) throws Exception {
@@ -54,15 +58,6 @@ public class GuessNumber {
         }
         System.out.println(currentPlayer.getName() + " Вы угадали число " + secretNumber + " c " + (currentPlayer.getAttempt()) + " попытки!");
         return true;
-    }
-
-    private boolean enterNumAndGuess(Player currentPlayer, int secretNumber) throws Exception {
-        enterNumber(currentPlayer);
-        boolean guessResult = guess(currentPlayer, secretNumber);
-        if (currentPlayer.getAttempt() == 10) {
-            System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
-        }
-        return guessResult;
     }
 
     private void printPlayerNumbers(Player currentPlayer) {
