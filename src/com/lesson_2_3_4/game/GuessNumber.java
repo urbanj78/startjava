@@ -30,16 +30,18 @@ public class GuessNumber {
     }
 
     private boolean makeMove(Player currentPlayer, int secretNumber) throws Exception {
-        if (currentPlayer.getAttempt() == 10) {
-            System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
-
-            if (playerOne.getAttempt() == 10 && playerTwo.getAttempt() == 10) {
-                System.out.println("Компьютер выиграл!");
-                return true;
-            } return false;
+        if (playerOne.getAttempt() == 10 && playerTwo.getAttempt() == 10) {
+            System.out.println("Компьютер выиграл!");
+            return true;
         }
+
         enterNumber(currentPlayer);
+
+        if (currentPlayer.getAttempt() == 10 && currentPlayer.getCurrentNumber() != secretNumber) {
+            System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки!");
+        }
         return guess(currentPlayer, secretNumber);
+
     }
 
     private void enterNumber(Player currentPlayer) throws Exception {
